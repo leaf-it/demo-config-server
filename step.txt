@@ -1,0 +1,28 @@
+
+1.创建项目请参考demo项目
+2.在项目中pom.xml添加,注意如果不添加spring-boot-starter-actuator，客户启动时候报错
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-config-server</artifactId>
+    <version>1.3.3.RELEASE</version>
+</dependency>
+3.启动类型中添加@EnableConfigServer注释以启动configServer功能
+4.配置application.porperties属性。
+  server.port=8888
+  #属性文件地址
+  spring.cloud.config.server.git.uri=https://github.com/leaf-it/demo-config-repo
+  #搜索路径
+  #spring.cloud.config.server.git.searchPaths=
+  #分支
+  spring.cloud.config.label=master
+4.启动，程序成功。
+5.遗留问题：刷新不及时。
+
+
+
+
+
